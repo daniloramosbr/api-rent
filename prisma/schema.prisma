@@ -23,4 +23,5 @@ model Rent {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
   userId     String
+  name       String
 }

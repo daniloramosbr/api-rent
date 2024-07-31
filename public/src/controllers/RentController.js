@@ -15,13 +15,14 @@ class RentController {
     createRent(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { userId, img, title, price, city } = request.body;
+                const { name, userId, img, title, price, city } = request.body;
                 if (!userId || !img || !title || !price || !city) {
                     return response.status(500).json({ erro: "insira todos os dados" }); //verircia se tem todos os dados
                 }
                 const newRent = yield prisma.rent.create({
                     data: {
                         userId,
+                        name,
                         img,
                         title,
                         price,

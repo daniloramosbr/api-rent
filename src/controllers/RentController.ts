@@ -8,7 +8,7 @@ async createRent (request: Request, response: Response) {
 
     try {
 
-        const {userId, img, title, price, city} = request.body
+        const {name, userId, img, title, price, city} = request.body
 
         if (!userId || !img || !title || !price || !city) {
           return response.status(500).json({ erro: "insira todos os dados" });          //verircia se tem todos os dados
@@ -17,6 +17,7 @@ async createRent (request: Request, response: Response) {
         const newRent = await prisma.rent.create({
             data: {
               userId,
+              name,
               img,
               title,
               price,
